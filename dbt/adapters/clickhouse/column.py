@@ -55,6 +55,16 @@ class ClickhouseColumn(Column):
     @property
     def quoted(self) -> str:
         return self.column
+    
+    @property
+    def data_type(self) -> str:
+        if self.is_string():
+            return ClickhouseColumn.string_type(self.string_size())
+        elif self.is_numeric():
+            return ClickhouseColumn.numeric_type(self.dtype, self.numeric_precision,
+                                       self.numeric_scale)
+        else:
+            return self.dtype
 
     def is_string(self) -> bool:
         return self.dtype.lower() in [
