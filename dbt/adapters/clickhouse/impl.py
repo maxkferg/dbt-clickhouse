@@ -75,7 +75,7 @@ class ClickhouseAdapter(SQLAdapter):
         return conn.credentials.cluster
 
     def quote(self, identifier):
-        return f'{identifier}'
+        return f'"{identifier}"'
 
     def check_schema_exists(self, database, schema):
         results = self.execute_macro(
