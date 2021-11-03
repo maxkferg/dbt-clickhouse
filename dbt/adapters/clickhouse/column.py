@@ -54,7 +54,7 @@ class ClickhouseColumn(Column):
 
     @property
     def quoted(self) -> str:
-        return self.column
+        return f'"{self.column}"'
     
     @property
     def data_type(self) -> str:
