@@ -53,10 +53,6 @@ class ClickhouseColumn(Column):
         return f'<ClickhouseColumn {self.name} ({self.data_type}, is nullable: {self.is_nullable})>'
 
     @property
-    def quoted(self) -> str:
-        return f'"{self.column}"'
-    
-    @property
     def data_type(self) -> str:
         if self.is_string():
             return ClickhouseColumn.string_type(self.string_size())
