@@ -100,7 +100,7 @@ class ClickhouseColumn(Column):
 
     @classmethod
     def string_type(cls, size: int) -> str:
-        return 'String'
+        return 'Nullable(String)'
 
     @classmethod
     def numeric_type(cls, dtype: str, precision: Any, scale: Any) -> str:
